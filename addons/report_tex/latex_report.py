@@ -27,9 +27,9 @@ _logger = logging.getLogger(__name__)
 
 # States to parse log file
 LOGNOMESSAGE = 0
-LOGWAITLINE = 1
-LOGINLINE = 2
-LOGINHELP = 3
+LOGWAITLINE  = 1
+LOGINLINE    = 2
+LOGINHELP    = 3
 
 # Text expected in log file to rerun
 # Rerun check need <rerunfilecheck> package
