@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, report, addons
+from openerp import models, fields, report, addons, api
 from latex_report import LatexParser
 
 
@@ -9,6 +9,7 @@ class ir_actions_report_xml(models.Model):
 
     report_type = fields.Selection(selection_add=[("tex", "Tex")])
 
+    @api.v7
     def _lookup_report(self, cr, name):
         """
         Look up a report definition.
@@ -24,7 +25,7 @@ class ir_actions_report_xml(models.Model):
         else:
             cr.execute("SELECT * FROM ir_act_report_xml"
                        " WHERE report_name=%s and report_type=%s",
-                       (name, 'latex'))
+                       (name, 'tex'))
             r = cr.dictfetchone()
             if r:
                 if r['parser']:
